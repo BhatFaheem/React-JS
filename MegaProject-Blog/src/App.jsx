@@ -2,14 +2,15 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import "./App.css";
 import authService from "./appwrite/authentication";
-import { login, logout } from "./store/authSlice";
-import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
+import { login, logout } from "./store/authSlice";
 function App() {
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
-    authService.getCurrentUser()
+    authService
+      .getCurrentUser()
       .then((userData) => {
         if (userData) {
           dispatch(login({ userData }));
