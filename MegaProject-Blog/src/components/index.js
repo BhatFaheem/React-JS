@@ -7,4 +7,5 @@ import RTE from "./RTE";
 import SignUp from "../pages/SignUp";
 import Login from "../pages/Login";
 import PostForm from "../components/post-form/PostForm"
-export default { Header, Footer, Container, Logo, LogoutBtn, RTE, SignUp, Login , PostForm };
+import PostCard from '../components/PostCard'
+export default { Header, Footer, Container, Logo, LogoutBtn, RTE, SignUp, Login, PostForm, PostCard };
