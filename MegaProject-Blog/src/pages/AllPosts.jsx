@@ -4,10 +4,12 @@ import appwriteService from "../appwrite/config";
 
 function AllPosts() {
   const [posts, setPosts] = useState([]);
-  useEffect(() => {}, []);
-  appwriteService.getPost([]).then((posts) => {
-    if (posts) setPosts(posts.documents);
-  });
+  useEffect(() => {
+    appwriteService.getPost([]).then((posts) => {
+      if (posts) setPosts(posts.documents);
+    });
+  }, []);
+
   return (
     <div className="py-8 w-full">
       <Container>
