@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-useless-catch */
-import { Client, Databases, ID, Query } from 'appwrite';
+import { Client, Databases, Storage, ID, Query } from 'appwrite';
 import conf from "../conf/conf";
 
 export class Service {
@@ -11,7 +11,7 @@ export class Service {
     constructor() {
         this.client
             .setEndpoint(conf.appwriteUrl)
-            .setProject(conf.appwriteProjectId)
+            .setProject(conf.appwriteProjectId);
         this.databases = new Databases(this.client);
         this.bucket = new Storage(this.client);
     }
