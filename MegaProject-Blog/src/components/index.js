@@ -8,4 +8,6 @@ import SignUp from "../pages/SignUp";
 import Login from "../pages/Login";
 import PostForm from "../components/post-form/PostForm"
 import PostCard from '../components/PostCard'
-export default { Header, Footer, Container, Logo, LogoutBtn, RTE, SignUp, Login, PostForm, PostCard };
+import Post from '../pages/Post'
+import AuthLayout from '../components/AuthLayout'
+export default { Header, Footer, Container, Logo, LogoutBtn, RTE, SignUp, Login, PostForm, PostCard, Post, AuthLayout };
