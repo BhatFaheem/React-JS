@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import appwriteService from "../../appwrite/config";
 import { Button, Input, RTE, Select } from "../index";
-function PostForm({ post }) {
+export default function PostForm({ post }) {
   const { register, handleSubmit, watch, control, setValue, getValues } =
     useForm({
       defaultValues: {
@@ -17,7 +17,7 @@ function PostForm({ post }) {
       },
     });
   const navigate = useNavigate();
-  const userData = useSelector((state) => state.user.userData);
+  const userData = useSelector((state) => state.auth.userData);
 
   const submit = async (data) => {
     if (post) {
@@ -131,5 +131,3 @@ function PostForm({ post }) {
     </form>
   );
 }
-
-export default PostForm;

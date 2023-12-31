@@ -24,14 +24,14 @@ export class AuthService {
             }
 
         } catch (error) {
-            throw error;
+            throw error.message || error.toString();
         }
     }
     async login({ email, password }) {
         try {
             return await this.account.createEmailSession(email, password);
         } catch (error) {
-            throw error;
+            throw error.message || error.toString();
         }
     }
     async getCurrentUser() {
@@ -39,8 +39,9 @@ export class AuthService {
             return await this.account.get();
         } catch (error) {
             console.log("Appwrite serive :: getCurrentUser :: error", error);
+            throw error.message || error.toString();
+
         }
-        return null;
     }
     async logout() {
         try {
