@@ -44,7 +44,7 @@ export default function PostForm({ post }) {
           userid: userData.$id,
         });
         if (dbPost) {
-          navigate(`/post/${post.$id}`);
+          navigate(`/post/${post.id}`);
         }
       }
     }
