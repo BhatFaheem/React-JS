@@ -34,8 +34,34 @@ export class Service {
         }
     }
 
-    async updatePost({  slug , title, content, featuredImage, status}) {
-         
+    async updatePost({ slug, title, content, featuredImage, status }) {
+        try {
+            return await this.databases.updateDocument(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                slug,
+                {
+                    title,
+                    content,
+                    featuredImage,
+                    status,
+                }
+            )
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async deletePost({ slug }) {
+        try {
+            return await this.databases.deleteDocument(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                slug,
+            )
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 
