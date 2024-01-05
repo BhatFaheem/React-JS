@@ -1,4 +1,4 @@
-import { Client, Databases, Storage } from 'appwrite';
+import { Client, Databases, Query, Storage } from 'appwrite';
 import conf from '../conf.js';
 
 export class Service {
@@ -59,8 +59,35 @@ export class Service {
                 conf.appwriteCollectionId,
                 slug,
             )
+            return true;
         } catch (error) {
             console.log(error);
+            return false;
+        }
+    }
+    async getPost(slug) {
+        try {
+            return await this.databases.getDocument(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                slug,
+            );
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
+    async getposts(queries = [Query.equal("status", "active")]) {
+        try {
+            return await this.databases.listDocuments(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                queries,
+            )
+        } catch (error) {
+            console.log(error);
+            return false;
         }
     }
 }
